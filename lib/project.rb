@@ -1,9 +1,9 @@
+
 ## Projects are projects that have many backers 
 
 class Project
 
-    attr_accessor :backers
-    attr_reader :title 
+    attr_reader :backers, :title 
 
     def initialize(title)
         @title = title 
@@ -12,7 +12,7 @@ class Project
 
     def add_backer(backer)
         @backers << backer 
-        backer.back_project(self) unless backer.backed_projects.include?(self)
+        backer.backed_projects << self
     end 
-
+    
 end 
